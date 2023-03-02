@@ -9,7 +9,17 @@ class Context {
     }
 
     change(status) {
-    }
+        const [
+            InitialState,
+            ErrorState,
+            SuccessState
+        ] = this._states
+ 
+        if (status === 'error') {
+            this.currentState = ErrorState
+        } else if (status === 'success') {
+            this.currentState = SuccessState
+        }    }
 
     get state() {
         return this.currentState.state
